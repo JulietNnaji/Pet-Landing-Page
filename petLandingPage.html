@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/1819fea80a.js" crossorigin="anonymous"></script>
+    <title>Pet Landing Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+    <style> @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); 
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+    }
+    .home-section{
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+background-color: #85FFBD;
+background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+    }
+    header{
+        position: relative;
+        top: 0;
+        width: 100%;
+        padding: 30px 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    header .logo{
+        position: relative;
+        color: #000;
+        font-size: 30px;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: 800;
+        letter-spacing: 1px;
+    }
+    header .navigation a{
+        color: #000;
+        background: #fff;
+        font-size: 10px;
+        text-decoration: none;
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        transition: 0.3s;
+        transition-property: transform;
+    }
+    header .navigation a:not(:last-child){
+        margin-right: 30px;
+    }
+    header .navigation a:hover{
+    transform: scale(1.5);
+    }
+    .home-content{
+        max-width: 650px;
+        margin: 60px 100px;
+    }
+    .home-content .info h2{
+        color: #000;
+        font-size: 55px;
+        text-transform: uppercase;
+        font-weight: 800;
+        letter-spacing: 2px;
+        line-height: 60px;
+        margin-bottom: 30px;
+    }
+    .home-content .info span{
+    color: aqua;
+    font-size: 50px;
+    font-weight: 600;
+    }
+    .home-content .info p{
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 40px;
+    }
+    .home-content .info-btn{
+    color:#000;
+    background: #F7CE68;
+    text-decoration: none;
+    margin-top: 10px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: 0.3s;
+    transition-property: background;
+    }
+    .home-content .info-btn:hover{
+    background: #fff;
+    }
+    .care-section{
+        
+        background-color: #FBAB7E;
+background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+    }
+    .care-content{
+        max-width: 650px;
+        margin-top: 30px;
+        margin-left: 100px;
+        margin-right: 20px;
+        padding-top: 100px;
+        
+    }
+    .image img{
+        width: 100%;
+        display: block;
+        margin: 0 auto;
+
+    }
+    .care-content h1{
+        font-size: 40px;
+        letter-spacing: 1px;
+        color: #85FFBD;
+        text-transform: uppercase;
+        font-weight: 800;
+        line-height: 40px;
+        margin-bottom: 30px;
+    }
+    .care-content p{
+        margin-bottom: 20px;
+        font-size: 15px;
+        letter-spacing: 1px;
+    }
+    .care-content button{
+        letter-spacing: 2px;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border-color: #FBAB7E;
+        background: #85FFBD;
+        cursor: pointer;
+        margin-bottom: 30px;
+        transition: 0.3s;
+    transition-property: background;
+    }
+    .care-content button:hover{
+    background: #FFFB7D;
+
+    }
+    .care-content a{
+        text-decoration: none;
+    }
+    .swiper{
+        width: 360px;
+    }
+    .swiper-slide{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .home-image{
+        width:  150px;
+    height: 150px;
+    object-fit: cover;
+        box-shadow: -5px 5px 17px rgba(0,0,0,0.3);
+        position: absolute;
+        right: 270px;
+        top: 230px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .social-media-icons{
+        display: flex;
+        justify-content: center;
+        font-size: 40px;
+        align-items: center; 
+        margin: auto;
+    }
+    .social-media-icons a{
+        position: relative;
+        color: #000;
+        font-weight: 25px;
+        transition: 0.3s;
+        transition-property: transform;
+    }
+    .social-media-icons a:not(:last-child){
+        margin-right: 60px;
+    }
+    .social-media-icons a:hover{
+       transform: scale(1.5);
+       color: #85FFBD;
+    }
+    label{
+        display: none;
+    }
+    #check{
+        z-index: 3;
+        display: none;
+    }
+
+    @media (max-width: 960px){
+        header .navigation{
+            display: none;
+        }
+
+    label{
+        display: block;
+        font-size: 30px;
+        cursor: pointer;
+        transition: 0.3s;
+        transition-property: color;
+    }
+    label:hover{
+        color: #fff;
+    }
+    label .close-btn{
+        display: none;
+    }
+    #check:checked ~ header .navigation{
+        z-index: 2;
+        position: fixed;
+        background: rgba(114, 223, 255, 0.9);
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #check:checked ~ header .navigation a{
+font-weight: 700;
+margin-right: 0;
+margin-bottom: 50px;
+letter-spacing: 2px;
+    }
+    #check:checked ~ header label .menu-btn{
+        display: none;
+    }
+    #check:checked ~ header label .close-btn{
+z-index: 2;
+display: block;
+position: fixed;
+    }
+    label .menu-btn{
+        position: absolute;
+    }
+    header .logo{
+        position: absolute;
+        bottom: -6px;
+    }
+.home-content .info h2{
+    font-size: 45px;
+    line-height: 50px;
+}
+.home-content .info h2 span{
+    font-size: 40px;
+    font-weight: 600;
+}
+.home-content .info p{
+    font-size: 14px;
+}
+}
+
+@media (max-width: 600px){
+    .home-image{
+       display: none;
+    }
+}
+
+@media (max-width: 560px){
+    .home-content .info h2{
+    font-size: 35px;
+    line-height: 40px;
+}
+.home-content .info h2 span{
+    font-size: 30px;
+    font-weight: 600;
+}
+.home-content .info p{
+    font-size: 14px;
+}
+}
+
+
+    </style>
+</head>
+<body>
+   <section class="home-section">
+    <input type="checkbox" id="check">
+    <header>
+        <h2><a href="#" class="logo">My Pet</a></h2>
+        <div class="navigation">
+            <a href="#">Home</a>
+            <a href="#">Care</a>
+            <a href="#">Contact</a>
+        </div>
+        <label for="check">
+            <i class="fas fa-bars menu-btn"></i>
+            <i class="fas fa-times close-btn"></i>
+        </label>
+    </header>
+    <div class="home-content">
+        <div class="info">
+            <h2> Do you have pets?<br/> <span> I wish I had one!</span></h2>
+            <p>I do not have a pet yet. But if I would in the near future, it would be a Pomeranian dog. Apart from the fact that Pomeranian dogs are really cute and snuggly, they are also feisty, smart, currious, alert and intelligent. And because, I spend 80% of my time alone at home, I would not mind spending time with their boundless energetic company and revolve my day around them.</p>
+            <a href="https://dogtime.com/dog-breeds/pomeranian#/slide/1" class="info-btn"> Read About Pomeranian Dogs</a>
+        </div>
+        <div class="home-image">
+        <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/056/195/original/hayffield-l-ZVdZw2p08y4-unsplash.jpg?1670069172" alt="A Pomeranian dog" width="450px">
+        </div>
+        </div>
+        <section class="care-section">
+        <div class="care-content">
+        <div class="image">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide"><img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/056/196/original/istockphoto-1316778928-612x612.jpg?1670069495" alt="A Pomeranian dog"></div>
+                  <div class="swiper-slide"><img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/056/195/original/hayffield-l-ZVdZw2p08y4-unsplash.jpg?1670069172" alt="A Pomeranian dog"></div>
+                  <div class="swiper-slide"><img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/056/259/original/istockphoto-123919333-612x612.jpg?1670094671" alt="A Pomeranian dog"></div>
+                </div>
+                </div>
+              </div>
+            <div class="care-text">
+            <h1>How to take care of a Pomeranian dog</h1>
+            <p>Pomeranians are usually easy to keep, although some are finicky eaters. They do not have a tendency toward obesity, probably because of their active nature. The double coat does require some regular grooming attention once or twice weekly, with daily sessions during shedding season.
+        <h3>
+            Five Quick Do's
+        </h3>
+        <ul>
+            <li>Do maintain good Pomeranian oral health.</li>
+            <li>Do feed him all-natural, top quality foods</li>
+            <li>Do get your Pomeranian involved in regular exercise.</li>
+            <li>Do use the right tools to brush your Pom's coat regularly.</li>
+            <li>Do visit the vet for wellness checks</li>
+        </ul>
+    </p>
+    <button>
+    <a href="https://pomeranian.org/top-10-pomeranian-care-tips/" class="info-btn">Know More </a></button>
+    </div>
+    </div>
+    <footer>
+    <div class="social-media-icons">
+        <a href="mailto:julietnnaji16@gmail.com" title="Juliets' email" class="mail">
+                  <i class="fa-solid fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/thejulietnnaji" target="_blank" title="Juliets' linkedin">
+        <i class="fa-brands fa-linkedin pe-3"></i></a>
+      <a href="https://instagram.com/thejulietnnaji" target="_blank" title="Juliets' instagram">
+        <i class="fa-brands fa-instagram-square pe-3"></i></a>
+      <a href="https://twitter.com/nnajijuliet17" target="_blank" title="Juliets' twitter">
+        <i class="fa-brands fa-twitter"></i></a>
+      </div>
+    </footer>
+</section>
+   </section> 
+   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+ <!-- Initialize Swiper -->
+ <script>
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+    });
+  </script>
+</body>
+</html>
